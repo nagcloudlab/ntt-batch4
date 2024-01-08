@@ -1,0 +1,76 @@
+
+what makes javascript so special?
+
+    - to build web-ui applications ( our focus )
+    - to build mobile applications
+    - to build desktop applications
+    - to build server-side applications ( our focus )
+
+javascript best features:
+
+    - dynamic language
+    - functional language
+    - event-driven language
+    - single-threaded language
+    - non-blocking ( async ) i/o language
+
+javascript is based on ECMAScript standard spec
+
+    - ECMAScript 3 ( 1999 )
+    - ECMAScript 5 ( 2009 )
+    "- ECMAScript 6 ( 2015 )"
+    "- ECMAScript 7 ( 2016 )"
+    - ECMAScript 8 ( 2017 )
+    - ECMAScript 9 ( 2018 )
+    - ECMAScript 10 ( 2019 )
+    - ECMAScript 11 ( 2020 )
+    - ECMAScript 12 ( 2021 )
+
+
+how to run javascript?
+
+=> javascript engine / interpreter
+
+    - browser
+        - chrome v8 ( c++ )
+        - firefox spider monkey ( c++ )
+        - safari nitro 
+        - edge chakra 
+        - opera carakan
+    - server
+        - node.js ( chrome v8 )
+
+
+=> "Hello World"
+
+
+javascript topics
+
+level-1
+👉    - data-types ( built-in/user-defined types)
+👉    - literal-style objects
+👉    - execution-context / scope
+👉    - functional programming
+👉    - object-oriented programming
+👉    - function binding | 'this' keyword
+👉    - list , set , map , weakmap , weakset collections
+level-2
+👉    - es6 & beyond features
+        - module standards ( cjs & esm ) & loaders
+        - Async programming
+            - promises
+            - reactive extensions for javascript ( RxJS )
+level-3
+    - unit testing
+    - build tools ( e,g webpack )
+    - typescript
+
+------------------------------------------------------------
+
+reference links
+
+https://javascript.info/
+https://developer.mozilla.org/en-US/docs/Web/JavaScript
+https://exploringjs.com/
+
+------------------------------------------------------------
