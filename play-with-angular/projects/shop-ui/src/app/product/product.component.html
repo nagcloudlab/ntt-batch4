@@ -5,8 +5,8 @@
     <div class="col-8">
         <div>{{ product.name }}</div>
         <div>{{ product.price }}</div>
-        <button (click)="handleAddToCart($event)" class="btn btn-dark">
-            Add to cart
+        <button (click)="handleBuy($event)" class="btn btn-dark">
+            Buy
         </button>
         <ul class="nav nav-tabs mt-3 mb-2">
             <li class="nav-item">
@@ -24,6 +24,10 @@
         </ul>
         <div *ngIf="isTabSelected(1)">{{ product.description }}</div>
         <div *ngIf="isTabSelected(2)">Not Yet</div>
-        <div *ngIf="isTabSelected(3)">None Yet</div>
+        <div *ngIf="isTabSelected(3)">
+            <div *ngFor="let review of reviews">
+                <app-review [value]="review"></app-review>
+            </div>
+        </div>
     </div>
 </div>

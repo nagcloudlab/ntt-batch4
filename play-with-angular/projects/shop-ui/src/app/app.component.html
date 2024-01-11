@@ -1,5 +1,10 @@
 <div class="container">
   <app-navbar [title]="title"></app-navbar>
   <hr />
-  <app-product-list></app-product-list>
+  <app-cart-badge [value]="cart.length"></app-cart-badge>
+  <hr />
+  <app-cart-view [value]="cart"></app-cart-view>
+  <hr />
+  <!-- <app-foo></app-foo> -->
+  <app-product-list (buy)="handleBuy($event)"></app-product-list>
 </div>

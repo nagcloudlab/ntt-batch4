@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ProductComponent } from '../product/product.component';
 
 @Component({
@@ -13,6 +13,9 @@ import { ProductComponent } from '../product/product.component';
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent {
+
+  @Output()
+  buy: any = new EventEmitter<any>();
 
   products: Array<any> = [
     {
@@ -33,4 +36,7 @@ export class ProductListComponent {
     },
   ];
 
+  handleBuy(event: any) {
+    this.buy.emit(event);
+  }
 }
