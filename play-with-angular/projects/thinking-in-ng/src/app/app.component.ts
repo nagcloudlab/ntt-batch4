@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { VotingBoxComponent } from './voting-box/voting-box.component';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +9,11 @@ import { ProductListComponent } from './product-list/product-list.component';
   imports: [
     CommonModule,
     RouterOutlet,
-    NavbarComponent,
-    ProductListComponent
+    VotingBoxComponent
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'shop-UI';
-  
+  title = 'thinking-in-NG';
 }

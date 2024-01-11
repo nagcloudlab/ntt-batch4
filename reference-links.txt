@@ -10,3 +10,5 @@ https://lodash.com/
 
 
 https://nagcloudlab.notion.site/Angular-Notes-e9e9995eaf3f447fa2f649697f996e9f?pvs=4
+
+https://docs.google.com/presentation/d/1_iF4tDfw9kpt_R731MjD4DLAoVNwgl4f9zSppkXejjU/edit?usp=sharing
