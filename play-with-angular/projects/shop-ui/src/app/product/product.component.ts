@@ -4,6 +4,8 @@ import { ReviewComponent } from '../review/review.component';
 import { HighlightDirective } from '../highlight.directive';
 import { DiscountPipe } from '../discount.pipe';
 import { CartService } from '../cart.service';
+import { ReviewFormComponent } from '../review-form/review-form.component';
+import { ReactiveReviewFormComponent } from '../reactive-review-form/reactive-review-form.component';
 
 @Component({
   selector: 'app-product',
@@ -12,7 +14,9 @@ import { CartService } from '../cart.service';
     CommonModule,
     ReviewComponent,
     HighlightDirective,
-    DiscountPipe
+    DiscountPipe,
+    ReviewFormComponent,
+    ReactiveReviewFormComponent
   ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
@@ -28,10 +32,7 @@ export class ProductComponent {
   constructor(private cartService: CartService) { }
 
   currentTab: number = 1;
-  reviews: any[] = [
-    { rating: 5, author: 'who-1', body: 'body-1' },
-    { rating: 3, author: 'who-2', body: 'body-2' }
-  ];
+  reviews: any[] = [];
 
   handleTabChange(event: MouseEvent, tabNumber: number) {
     event.preventDefault();
@@ -44,6 +45,10 @@ export class ProductComponent {
   handleBuy(event: MouseEvent) {
     //this.buy.emit({ item: this.product });
     this.cartService.addToCart(this.product);
+  }
+
+  handleNewReview(review: any) {
+    this.reviews.push(review);
   }
 
 

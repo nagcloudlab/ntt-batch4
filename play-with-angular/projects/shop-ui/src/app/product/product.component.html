@@ -26,6 +26,8 @@
         <div *ngIf="isTabSelected(1)">{{ product.description }}</div>
         <div *ngIf="isTabSelected(2)">Not Yet</div>
         <div *ngIf="isTabSelected(3)">
+            <!-- <app-review-form></app-review-form> -->
+            <app-reactive-review-form (newReview)="handleNewReview($event)"></app-reactive-review-form>
             <div *ngFor="let review of reviews">
                 <app-review [value]="review"></app-review>
             </div>

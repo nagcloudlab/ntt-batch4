@@ -27,18 +27,18 @@ export class ProductListComponent {
       imagePath: 'assets/Laptop.png',
       isAvailable: true,
     },
-    {
-      id: 2,
-      name: 'Mobile',
-      price: {
-        amount: 1500.0,
-        currencyCode: 'INR'
-      },
-      makeDate: Date.now(),
-      description: 'This is a mobile',
-      imagePath: 'assets/Mobile.png',
-      isAvailable: true,
-    },
+    // {
+    //   id: 2,
+    //   name: 'Mobile',
+    //   price: {
+    //     amount: 1500.0,
+    //     currencyCode: 'INR'
+    //   },
+    //   makeDate: Date.now(),
+    //   description: 'This is a mobile',
+    //   imagePath: 'assets/Mobile.png',
+    //   isAvailable: true,
+    // },
   ];
 
 }

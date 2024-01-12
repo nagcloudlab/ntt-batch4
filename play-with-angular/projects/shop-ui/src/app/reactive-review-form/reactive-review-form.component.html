@@ -1,0 +1,49 @@
+<button type="button" class="btn btn-link" (click)="toggle()">
+    <i class="fa fa-plus" *ngIf="!isOpen"></i>
+    <i class="fa fa-minus" *ngIf="isOpen"></i>
+</button>
+
+<div class="card" *ngIf="isOpen">
+    <div class="card-header">Review Form</div>
+    <div class="card-body">
+        <form [formGroup]="reviewForm" (submit)="handleSubmit($event)">
+            <div class="form-group">
+                <label for="name">Rating</label>
+                <select class="form-control" formControlName="rating">
+                    <option *ngFor="let n of [1,2,3,4,5]" [value]="n">{{n}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name">Body</label>
+                <textarea name="body" class="form-control" formControlName="body"></textarea>
+                <div *ngIf="reviewForm.controls['body'].invalid && reviewForm.controls['body'].touched">
+                    <div *ngIf="reviewForm.controls['body'].errors?.required" class="text-danger">
+                        Body is required
+                    </div>
+                    <div *ngIf="reviewForm.controls['body'].errors?.minlength" class="text-danger">
+                        Body must be at least 10 characters long
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name">Author</label>
+                <input type="text" class="form-control" formControlName="author" />
+            </div>
+            <hr />
+            <button type="button" (click)="toggle()" class="btn btn-link">Cancel</button>
+            <!-- <button type="button" (click)="load()" class="btn btn-primary">Load</button>&nbsp; -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <hr />
+        </form>
+        <!-- <pre>
+            {{reviewForm.value | json}}
+            is 'body' valid: {{reviewForm.controls['body'].valid}}
+            is pristine: {{reviewForm.pristine}}
+            is dirty : {{reviewForm.dirty}}
+            is untouched: {{reviewForm.untouched}}
+            is touched :  {{reviewForm.touched}}
+            is valid: {{reviewForm.valid}}
+            is invalid: {{reviewForm.invalid}} 
+        </pre> -->
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<button type="button" class="btn btn-link" (click)="toggle()">
+    <i class="fa fa-plus" *ngIf="!isOpen"></i>
+    <i class="fa fa-minus" *ngIf="isOpen"></i>
+</button>
+
+<div class="card" *ngIf="isOpen">
+    <div class="card-header">Review Form</div>
+    <div class="card-body">
+        <form #reviewForm="ngForm" (submit)="handleSubmit($event,reviewForm)">
+            <div class="form-group">
+                <label for="name">Rating</label>
+                <select [(ngModel)]="reviewModel.rating" name="rating" class="form-control">
+                    <option *ngFor="let n of [1,2,3,4,5]" [value]="n">{{n}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name">Body</label>
+                <textarea required [(ngModel)]="reviewModel.body" name="body" class="form-control"></textarea>
+                <div *ngIf="reviewForm.controls['body'].invalid && reviewForm.controls['body'].touched">
+                    <div *ngIf="reviewForm.controls['body'].errors?.required" class="text-danger">
+                        Body is required
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name">Author</label>
+                <input type="text" [(ngModel)]="reviewModel.author" name="author" class="form-control" />
+            </div>
+            <hr />
+            <button type="button" (click)="toggle()" class="btn btn-link">Cancel</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <hr />
+        </form>
+        <pre>
+            {{reviewForm.value | json}}
+            is 'body' valid: {{reviewForm.controls['body'].valid}}
+            is pristine: {{reviewForm.pristine}}
+            is dirty : {{reviewForm.dirty}}
+            is untouched: {{reviewForm.untouched}}
+            is touched :  {{reviewForm.touched}}
+            is valid: {{reviewForm.valid}}
+            is invalid: {{reviewForm.invalid}}
+        </pre>
+    </div>
+</div>
