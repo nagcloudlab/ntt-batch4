@@ -1,10 +1,11 @@
-<div class="row" *ngIf="product.isAvailable">
+<div class="row" *ngIf="product.isAvailable" appHighlight="#DEF">
+    <!-- <pre>{{ product | json }}</pre> -->
     <div class="col-4">
         <img alt="" [src]="product.imagePath" class="img-fluid" />
     </div>
     <div class="col-8">
-        <div>{{ product.name }}</div>
-        <div>{{ product.price }}</div>
+        <div>{{ product.name|uppercase }} - {{product.makeDate|date:'yyyy'}}</div>
+        <div>{{ product.price.amount | discount | currency:product.price.currencyCode }}</div>
         <button (click)="handleBuy($event)" class="btn btn-dark">
             Buy
         </button>

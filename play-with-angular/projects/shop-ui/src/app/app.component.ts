@@ -24,11 +24,9 @@ import { FooComponent } from './foo.component';
 })
 export class AppComponent {
   title = 'shop-UI';
-  
-  cart: Array<any> = [];
-
-  handleBuy(event: any) {
-    let { item } = event;
-    this.cart.push(item);
+  isCartOpen: boolean = false
+  toggleCart() {
+    this.isCartOpen = !this.isCartOpen;
   }
+
 }

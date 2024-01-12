@@ -14,14 +14,15 @@ import { ProductComponent } from '../product/product.component';
 })
 export class ProductListComponent {
 
-  @Output()
-  buy: any = new EventEmitter<any>();
-
   products: Array<any> = [
     {
       id: 1,
       name: 'Laptop',
-      price: 14500.0,
+      price: {
+        amount: 14500.0,
+        currencyCode: 'INR'
+      },
+      makeDate: Date.now(),
       description: 'This is a laptop',
       imagePath: 'assets/Laptop.png',
       isAvailable: true,
@@ -29,14 +30,15 @@ export class ProductListComponent {
     {
       id: 2,
       name: 'Mobile',
-      price: 15000.0,
+      price: {
+        amount: 1500.0,
+        currencyCode: 'INR'
+      },
+      makeDate: Date.now(),
       description: 'This is a mobile',
       imagePath: 'assets/Mobile.png',
       isAvailable: true,
     },
   ];
 
-  handleBuy(event: any) {
-    this.buy.emit(event);
-  }
 }
