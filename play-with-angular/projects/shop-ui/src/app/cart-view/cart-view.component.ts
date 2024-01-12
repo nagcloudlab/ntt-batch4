@@ -75,7 +75,7 @@ export class CartViewComponent {
     console.log("CartViewComponent::ngOnDestroy()");
     clearInterval(this.intervalId);
     if (this.unsubscribe) {
-      this.unsubscribe();
+      //this.unsubscribe();
     }
     // why we need ngOnDestroy() in Angular component?
     // - to clean up resources
