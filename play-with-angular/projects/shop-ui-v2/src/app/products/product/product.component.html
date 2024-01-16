@@ -1,0 +1,36 @@
+<div class="row" *ngIf="product.isAvailable" appHighlight="#DEF">
+    <!-- <pre>{{ product | json }}</pre> -->
+    <div class="col-4">
+        <img alt="" [src]="product.imagePath" class="img-fluid" />
+    </div>
+    <div class="col-8">
+        <div>{{ product.name|uppercase }} - {{product.makeDate|date:'yyyy'}}</div>
+        <div>{{ product.price.amount | discount | currency:product.price.currencyCode }}</div>
+        <button (click)="handleBuy($event)" class="btn btn-dark">
+            Buy
+        </button>
+        <ul class="nav nav-tabs mt-3 mb-2">
+            <li class="nav-item">
+                <a [ngClass]="{ active: isTabSelected(1), 'nav-link': true }" href="#"
+                    (click)="handleTabChange($event, 1)">Description</a>
+            </li>
+            <li class="nav-item">
+                <a [ngClass]="{ active: isTabSelected(2), 'nav-link': true }" href="#"
+                    (click)="handleTabChange($event, 2)">Specification</a>
+            </li>
+            <li class="nav-item">
+                <a [ngClass]="{ active: isTabSelected(3), 'nav-link': true }" href="#"
+                    (click)="handleTabChange($event, 3)">Reviews</a>
+            </li>
+        </ul>
+        <div *ngIf="isTabSelected(1)">{{ product.description }}</div>
+        <div *ngIf="isTabSelected(2)">Not Yet</div>
+        <div *ngIf="isTabSelected(3)">
+            <!-- <app-review-form></app-review-form> -->
+            <app-reactive-review-form (newReview)="handleNewReview($event)"></app-reactive-review-form>
+            <div *ngFor="let review of reviews">
+                <app-review [value]="review"></app-review>
+            </div>
+        </div>
+    </div>
+</div>

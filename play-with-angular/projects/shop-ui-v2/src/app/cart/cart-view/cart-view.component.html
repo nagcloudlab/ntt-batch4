@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-header" #cardHeader>Item(s) in cart</div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr appHighlight *ngFor="let cartLine of cart" #tableRows>
+                    <td>{{ cartLine.name }}</td>
+                    <td>{{ cartLine.price.amount|currency:cartLine.price.currencyCode}}</td>
+                    <td><button (click)="handleRemove(cartLine)" class="btn btn-danger">Remove</button></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <!-- <td>{{ tickCount }}</td> -->
+                    <td><ng-content select=".slot1"></ng-content></td>
+                    <td><ng-content select=".slot2"></ng-content></td>
+                </tr>
+        </table>
+    </div>
+</div>

@@ -82,6 +82,85 @@
         }
       }
     },
+    "shop-ui-v2": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/shop-ui-v2",
+      "sourceRoot": "projects/shop-ui-v2/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/shop-ui-v2",
+            "index": "projects/shop-ui-v2/src/index.html",
+            "browser": "projects/shop-ui-v2/src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "projects/shop-ui-v2/tsconfig.app.json",
+            "assets": [
+              "projects/shop-ui-v2/src/favicon.ico",
+              "projects/shop-ui-v2/src/assets"
+            ],
+            "styles": ["projects/shop-ui-v2/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "shop-ui-v2:build:production"
+            },
+            "development": {
+              "buildTarget": "shop-ui-v2:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "shop-ui-v2:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": ["zone.js", "zone.js/testing"],
+            "tsConfig": "projects/shop-ui-v2/tsconfig.spec.json",
+            "assets": [
+              "projects/shop-ui-v2/src/favicon.ico",
+              "projects/shop-ui-v2/src/assets"
+            ],
+            "styles": ["projects/shop-ui-v2/src/styles.css"],
+            "scripts": []
+          }
+        }
+      }
+    },
     "thinking-in-NG": {
       "projectType": "application",
       "schematics": {},

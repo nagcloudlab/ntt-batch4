@@ -57,10 +57,10 @@ export class CartViewComponent {
     // - to initialize the component
     // - to make service calls
     // - to subscribe to observables
-    this.intervalId = setInterval(() => {
-      console.log("tick");
-      this.tickCount++;
-    }, 1000);
+    // this.intervalId = setInterval(() => {
+    //   console.log("tick");
+    //   this.tickCount++;
+    // }, 1000);
 
     //this.cart = this.cartService.getCart();
     this.unsubscribe = this.cartService.getCartStream().subscribe({
@@ -73,10 +73,10 @@ export class CartViewComponent {
 
   ngOnDestroy() {
     console.log("CartViewComponent::ngOnDestroy()");
-    clearInterval(this.intervalId);
-    if (this.unsubscribe) {
+    //clearInterval(this.intervalId);
+    //if (this.unsubscribe) {
       //this.unsubscribe();
-    }
+    //}
     // why we need ngOnDestroy() in Angular component?
     // - to clean up resources
     // - to unsubscribe from observables
@@ -86,8 +86,8 @@ export class CartViewComponent {
     console.log("CartViewComponent::ngAfterContentInit()");
     // why we need ngAfterContentInit() in Angular component?
     // - to access projected content
-    const hEleNativeEle = this.hEle.nativeElement;
-    hEleNativeEle.style.backgroundColor = "lightgreen";
+    // const hEleNativeEle = this.hEle.nativeElement;
+    // hEleNativeEle.style.backgroundColor = "lightgreen";
   }
 
 
