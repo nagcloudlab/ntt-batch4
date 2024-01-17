@@ -52,91 +52,6 @@ const todos = [
         title: 'Learn HTML',
         completed: false
     },
-    {
-        id: 11,
-        title: 'Learn CSS',
-        completed: false
-    },
-    {
-        id: 12,
-        title: 'Learn SCSS',
-        completed: false
-    },
-    {
-        id: 13,
-        title: 'Learn SASS',
-        completed: false
-    },
-    {
-        id: 14,
-        title: 'Learn LESS',
-        completed: false
-    },
-    {
-        id: 15,
-        title: 'Learn Stylus',
-        completed: false
-    },
-    {
-        id: 16,
-        title: 'Learn Python',
-        completed: false
-    },
-    {
-        id: 17,
-        title: 'Learn Java',
-        completed: false
-    },
-    {
-        id: 18,
-        title: 'Learn C++',
-        completed: false
-    },
-    {
-        id: 19,
-        title: 'Learn C#',
-        completed: false
-    },
-    {
-        id: 20,
-        title: 'Learn PHP',
-        completed: false
-    },
-    {
-        id: 21,
-        title: 'Learn Ruby',
-        completed: false
-    },
-    {
-        id: 22,
-        title: 'Learn Go',
-        completed: false
-    },
-    {
-        id: 23,
-        title: 'Learn Rust',
-        completed: false
-    },
-    {
-        id: 24,
-        title: 'Learn Scala',
-        completed: false
-    },
-    {
-        id: 25,
-        title: 'Learn Kotlin',
-        completed: false
-    },
-    {
-        id: 26,
-        title: 'Learn Swift',
-        completed: false
-    },
-    {
-        id: 27,
-        title: 'Learn Dart',
-        completed: false
-    },
 ]
 
 
@@ -149,10 +64,10 @@ router.param("id", (req, res, next) => {
 router
     .get('/', (req, res, next) => {
         const limit = parseInt(req.query.limit);
-        if (limit > 0) {
+        if (limit) {
             res.json(todos.slice(0, limit));
         } else {
-            next();
+            res.json(todos);
         }
     })
     .post('/', (req, res) => {
