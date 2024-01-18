@@ -1,0 +1,6 @@
+<div *ngIf="post">
+    <div class="d-flex justify-content-between">
+        <a [routerLink]="['detail', post.id]">{{ post.title }}</a>
+        <button class="btn btn-danger" (click)="onDeletePost($event)">Delete Post</button>
+    </div>
+</div>

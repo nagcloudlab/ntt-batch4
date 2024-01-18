@@ -4,7 +4,8 @@
 
   <div class="row">
     <div class="offset-4 col-6">
-      <input (keyup)="handleKeyup($event)" class="form-control" placeholder="What needs to be done?" />
+      <input [(ngModel)]="title" (keyup)="handleKeyup($event)" class="form-control"
+        placeholder="What needs to be done?" />
     </div>
   </div>
   <hr />

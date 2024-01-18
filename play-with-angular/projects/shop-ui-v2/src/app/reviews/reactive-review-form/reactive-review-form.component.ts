@@ -18,6 +18,7 @@ export class ReactiveReviewFormComponent {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+
     this.reviewForm = this.fb.group({
       rating: ['1', [Validators.required]],
       body: ['', [Validators.required, Validators.minLength(3), this.badWordValidator]],

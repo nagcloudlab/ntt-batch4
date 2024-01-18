@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 type Todo = {
@@ -16,7 +17,9 @@ type Todo = {
   imports: [
     CommonModule,
     RouterOutlet,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -24,6 +27,8 @@ type Todo = {
 export class AppComponent {
 
   todos: Todo[] = [];
+
+  title: string = ''
 
   constructor(private httpClient: HttpClient) { }
 
